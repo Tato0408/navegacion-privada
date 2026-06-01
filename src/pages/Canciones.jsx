@@ -1,10 +1,10 @@
 import React from "react";
  
-import DataTestForm from "../components/DataTestForm";
-import DataTestList from "../components/DataTestList";
-import useDataTest from "../hooks/useDataTest";
+import DataTestForm2A from "../components/data2a/DataTestForm2A";
+import DataTestList2A from "../components/data2a/DataTestList2A";
+import useDataTest2A from "../hooks/useDataTest2A";
  
-const Contact = () => {
+const Canciones = () => {
   const {
     activeTab,
     setActiveTab,
@@ -14,15 +14,17 @@ const Contact = () => {
     error,
     message,
     id,
-    name,
-    setName,
-    age,
-    setAge,
+    cancion,
+    setCancion,
+    cantante,
+    setCantante,
+    nacionalidad,
+    setNacionalidad,
     openCreateForm,
     handleEdit,
     handleSubmit,
     handleDelete,
-  } = useDataTest();
+  } = useDataTest2A();
  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-50 px-4 py-10">
@@ -66,12 +68,14 @@ const Contact = () => {
         </header>
  
         {activeTab === "form" ? (
-          <DataTestForm
+          <DataTestForm2A
             id={id}
-            name={name}
-            setName={setName}
-            age={age}
-            setAge={setAge}
+            cancion={cancion}
+            setCancion={setCancion}
+            cantante={cantante}
+            setCantante={setCantante}
+            nacionalidad={nacionalidad}
+            setNacionalidad={setNacionalidad}
             onSubmit={handleSubmit}
             onCancel={() => setActiveTab("list")}
             submitting={submitting}
@@ -79,7 +83,7 @@ const Contact = () => {
             message={message}
           />
         ) : (
-          <DataTestList
+          <DataTestList2A
             dataTest={dataTest}
             loading={loading}
             error={error}
@@ -93,4 +97,4 @@ const Contact = () => {
   );
 };
  
-export default Contact;
+export default Canciones;
